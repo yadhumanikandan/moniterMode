@@ -8,7 +8,8 @@ def enable():
 
 
 def disable():
-    subprocess.run("airmon-ng stop wlan0", shell=True)
+    subprocess.run("ifconfig wlan0 down", shell=True)
+    subprocess.run("iwconfig wlan0 mode managed", shell=True)
     subprocess.run("ifconfig wlan0 up", shell=True)
     subprocess.run("service NetworkManager start", shell=True)
 
