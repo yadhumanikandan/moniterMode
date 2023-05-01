@@ -1,18 +1,33 @@
 import subprocess
+from argparse import ArgumentParser, Namespace
+
+parser = ArgumentParser()
+
+parser.add_argument('interface', help="interface name", type=str)
+parser.add_argument('-e', '--enable', help="enable monitor mode", action='store_true')
+parser.add_argument('-d', '--disable', help="disable monitor mode", action='store_true')
+
+
+args: Namespace = parser.parse_args()
+
+interface = args.interface
 
 
 def enable():
-    subprocess.run("ifconfig wlan0 down", shell=True)
-    subprocess.run("iwconfig wlan0 mode monitor", shell=True)
-    subprocess.run("ifconfig wlan0 up", shell=True)
+    subprocess.run(["ifconfig", interface, "down"])
+    subprocess.run(["iwconfig", interface, "mode", "monitor"])
+    subprocess.run(["ifconfig", interface, "up"])
 
 
 def disable():
-    subprocess.run("ifconfig wlan0 down", shell=True)
-    subprocess.run("iwconfig wlan0 mode managed", shell=True)
-    subprocess.run("ifconfig wlan0 up", shell=True)
+    subprocess.run(["ifconfig", interface, "down"])
+    subprocess.run(["iwconfig", interface, "mode", "managed"])
+    subprocess.run(["ifconfig", interface, "up"])
     subprocess.run("service NetworkManager start", shell=True)
 
 
 
-enable()
+if args.enable:
+    enable()
+elif args.disable:
+    disable()
