@@ -29,5 +29,7 @@ def disable():
 
 if args.enable:
     enable()
+    print("Monitor mode ENABLED !!!!")
 elif args.disable:
     disable()
+    print("Monitor mode DISABLED !!!!")
