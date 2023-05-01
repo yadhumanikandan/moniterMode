@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 
 parser = ArgumentParser()
 
-parser.add_argument('interface', help="interface name", type=str)
+parser.add_argument('interface', help="name of the interface to perform the operations", type=str)
 parser.add_argument('-e', '--enable', help="enable monitor mode", action='store_true')
 parser.add_argument('-d', '--disable', help="disable monitor mode", action='store_true')
 
