@@ -3,6 +3,8 @@ Python script to make the wireless interface monitor mode and managed mode in li
 
 # usage 
 
+* ` This script should be run in root terminal `
+
 ### Command to enable monitor mode 
 ```
 python3 monitorpy.py -e <interface name> 
