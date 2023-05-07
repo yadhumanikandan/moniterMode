@@ -41,7 +41,7 @@ elif args.disable:
 tools = 0
 
 def attacks():
-    if tool == 1:
+    if tools == 1:
         print("starting airodump-ng.....")
         subprocess.run(["airodump-ng", interface])
 
