@@ -43,7 +43,7 @@ tools = 0
 def attacks():
     if tools == 1:
         print("starting airodump-ng.....")
-        subprocess.run(["airodump-ng", interface])
+        subprocess.run(["airodump-ng", interface])  # this method is not working, try another.
 
 
 if args.attack:
